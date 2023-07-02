@@ -218,6 +218,7 @@ const Table = () => {
           type="number"
           placeholder="Previous Credits"
           value={previousCredits}
+          pattern="[0-9]*[.,]?[0-9]+"
           onChange={(event) => setPreviousCredits(parseInt(event.target.value))}
         />
       </div>

@@ -315,6 +315,14 @@ body.night-mode .gpa {
 body.night-mode td {
   background-color: white;
 }
+.deleteBtn {
+  color: black !important;
+}
+body.night-mode .deleteBtn {
+  border: none;
+  color: black;
+  background-color: rgb(67, 124, 173);
+}
 body.night-mode Button {
   border: 1px solid black;
 }

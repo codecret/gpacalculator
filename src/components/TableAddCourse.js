@@ -136,7 +136,7 @@ const Table = () => {
               id="toggle"
               class="toggle-switch"
               type="checkbox"
-              checked={isNight}
+              checked={!isNight}
               onChange={() => setNight(!isNight)}
             />
             <div class="sun-moon">
@@ -197,7 +197,14 @@ const Table = () => {
                   <option value="FF">FF</option>
                 </select>
               </td>
-              <button onClick={() => handleDelete(index)}>Delete</button>
+              <td>
+                <button
+                  onClick={() => handleDelete(index)}
+                  className="deleteBtn"
+                >
+                  Delete
+                </button>
+              </td>
             </tr>
           ))}
         </tbody>

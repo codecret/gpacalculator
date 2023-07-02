@@ -72,6 +72,10 @@ const Table = () => {
     setTimeout(() => {
       setGpa(calculatedGpa);
     }, 500);
+    if (isNaN(calculateGpa)) {
+      setGpa(0);
+      return;
+    }
   };
 
   const handleCourseChange = (index, event) => {

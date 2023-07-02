@@ -28,13 +28,12 @@ const Table = () => {
 
     // Check if the input value is a valid number or a dot
     if (/^\d*\.?\d*$/.test(inputValue) || inputValue === ".") {
-      setGpa(parseFloat(inputValue));
-      return;
+      setPreviousGpa(parseFloat(inputValue));
     }
-    setPreviousGpa(parseFloat(event.target.value));
+    setPreviousGpa(event.target.value);
   }
   useEffect(() => {
-    let isFloatresult = isFloat(previousGpa);
+    // let isFloatresult = isFloat(previousGpa);
 
     calculateGpa(data);
   }, [previousGpa, previousCredits]);

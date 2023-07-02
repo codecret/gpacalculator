@@ -318,3 +318,9 @@ body.night-mode .buttonCalculator {
 .gpa {
   font-size: 2rem;
 }
+@media (max-width: 1024px) {
+  .h1GPA,
+  table {
+    margin-top: 100px; /* Adjust the margin-top value for iPads */
+  }
+}

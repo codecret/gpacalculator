@@ -23,7 +23,16 @@ const Table = () => {
 
     return false;
   }
+  function handleInputChange(event) {
+    const inputValue = event.target.value;
 
+    // Check if the input value is a valid number or a dot
+    if (/^\d*\.?\d*$/.test(inputValue) || inputValue === ".") {
+      setGpa(parseFloat(inputValue));
+      return;
+    }
+    setPreviousGpa(parseFloat(event.target.value));
+  }
   useEffect(() => {
     let isFloatresult = isFloat(previousGpa);
 
@@ -225,7 +234,7 @@ const Table = () => {
           value={previousGpa}
           step="0.1"
           inputMode="decimal"
-          onChange={(event) => setPreviousGpa(parseFloat(event.target.value))}
+          onChange={handleInputChange}
         />
         <label htmlFor="previouscredit">Previous Credits</label>
 

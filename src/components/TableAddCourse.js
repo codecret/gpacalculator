@@ -12,8 +12,21 @@ const Table = () => {
   useEffect(() => {
     calculateGpa(data);
   }, [data]);
+  function isFloat(value) {
+    if (
+      typeof value === "number" &&
+      !Number.isNaN(value) &&
+      !Number.isInteger(value)
+    ) {
+      return true;
+    }
+
+    return false;
+  }
 
   useEffect(() => {
+    let isFloatresult = isFloat(previousGpa);
+
     calculateGpa(data);
   }, [previousGpa, previousCredits]);
 
@@ -48,7 +61,9 @@ const Table = () => {
       return;
     }
     const calculatedGpa = totalGradePoints / totalCredits;
-    setGpa(calculatedGpa);
+    setTimeout(() => {
+      setGpa(calculatedGpa);
+    }, 500);
   };
 
   const handleCourseChange = (index, event) => {

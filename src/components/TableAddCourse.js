@@ -208,6 +208,8 @@ const Table = () => {
           type="number"
           placeholder="Previous GPA"
           value={previousGpa}
+          step="0.1"
+          inputMode="decimal"
           onChange={(event) => setPreviousGpa(parseFloat(event.target.value))}
         />
         <label htmlFor="previouscredit">Previous Credits</label>

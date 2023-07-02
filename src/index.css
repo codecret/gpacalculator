@@ -308,8 +308,15 @@ body.night-mode {
 body.night-mode .h1GPA,
 body.night-mode label,
 body.night-mode h3,
+body.night-mode td,
 body.night-mode .gpa {
   color: white; /* Text color for labels, h3, and .gpa class in night mode */
+}
+body.night-mode td {
+  background-color: white;
+}
+body.night-mode Button {
+  border: 1px solid black;
 }
 body.night-mode th,
 body.night-mode .buttonCalculator {
@@ -323,4 +330,7 @@ body.night-mode .buttonCalculator {
   table {
     margin-top: 100px; /* Adjust the margin-top value for iPads */
   }
+}
+* {
+  transition: ease-in all 0.3s;
 }

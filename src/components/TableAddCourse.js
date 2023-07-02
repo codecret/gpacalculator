@@ -71,7 +71,7 @@ const Table = () => {
     const calculatedGpa = totalGradePoints / totalCredits;
     setTimeout(() => {
       setGpa(calculatedGpa);
-    }, 500);
+    }, 50);
     if (isNaN(calculateGpa)) {
       setGpa(0);
       return;

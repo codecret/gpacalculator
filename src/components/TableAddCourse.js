@@ -8,7 +8,7 @@ const Table = () => {
   const [gpa, setGpa] = useState(0);
   const [previousGpa, setPreviousGpa] = useState(0);
   const [previousCredits, setPreviousCredits] = useState(0);
-
+  const [isNight, setNight] = useState(false);
   useEffect(() => {
     calculateGpa(data);
   }, [data]);
@@ -87,9 +87,36 @@ const Table = () => {
       setNewGrade("");
     }
   };
-
+  useEffect(() => {
+    if (isNight) {
+      document.body.classList.add("night-mode");
+    } else {
+      document.body.classList.remove("night-mode");
+    }
+  }, [isNight]);
   return (
-    <div className="table-container">
+    <div className={`table-container ${isNight ? "night-mode" : ""}`}>
+      <div class="container">
+        <div class="switch">
+          <label for="toggle">
+            <input
+              id="toggle"
+              class="toggle-switch"
+              type="checkbox"
+              checked={isNight}
+              onChange={() => setNight(!isNight)}
+            />
+            <div class="sun-moon">
+              <div class="dots"></div>
+            </div>
+            <div class="background">
+              <div class="stars1"></div>
+              <div class="stars2"></div>
+            </div>
+            <div class="fill"></div>
+          </label>
+        </div>
+      </div>
       <h1 className="h1GPA">GPA Calculator</h1>
       <table>
         <thead>

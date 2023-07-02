@@ -95,7 +95,11 @@ const Table = () => {
       calculateGpa(newData);
     }
   };
-
+  const handleDelete = (index) => {
+    const updatedData = [...data];
+    updatedData.splice(index, 1);
+    setData(updatedData);
+  };
   const handleGradeChange = (index, event) => {
     const newData = [...data];
     newData[index].grade = event.target.value;
@@ -193,6 +197,7 @@ const Table = () => {
                   <option value="FF">FF</option>
                 </select>
               </td>
+              <button onClick={() => handleDelete(index)}>Delete</button>
             </tr>
           ))}
         </tbody>

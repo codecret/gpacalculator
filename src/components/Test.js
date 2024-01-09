@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import Textarea from '@mui/joy/Textarea';
+import Button from '@mui/joy/Button';
 
 const Table = () => {
   const [data, setData] = useState([]);
@@ -41,56 +43,57 @@ const Table = () => {
     calculateGpa(data);
   }, [previousGpa, previousCredits]);
 
+  const grades = ["AA", 'BA', 'BB', 'CB', 'CC', 'CD', 'DD'];
   const calculateGpa = (data) => {
     const totalCredits =
       previousCredits + data.reduce((sum, entry) => sum + entry.ects, 0);
     let totalGradePoints = previousGpa * previousCredits;
-
+  
     data.forEach((entry) => {
-      let gradePoints = 0;
-      switch (entry.grade) {
-        case "AA":
-          gradePoints = 4;
-          break;
-        case "BA":
-          gradePoints = 3.5;
-          break;
-        case "BB":
-          gradePoints = 3.0;
-          break;
-        case "CB":
-          gradePoints = 2.5;
-          break;
-        case "CC":
-          gradePoints = 2.0;
-          break;
-        case "DC":
-          gradePoints = 1.5;
-          break;
-        case "DD":
-          gradePoints = 1;
-          break;
-        case "FF":
-          gradePoints = 0;
-          break;
-        default:
-          // Handle any unexpected grade values
-          break;
+      if (grades.includes(entry.grade)) {
+        let gradePoints = 0;
+        switch (entry.grade) {
+          case "AA":
+            gradePoints = 4;
+            break;
+          case "BA":
+            gradePoints = 3.5;
+            break;
+          case "BB":
+            gradePoints = 3.0;
+            break;
+          case "CB":
+            gradePoints = 2.5;
+            break;
+          case "CC":
+            gradePoints = 2.0;
+            break;
+          case "DC":
+            gradePoints = 1.5;
+            break;
+          case "DD":
+            gradePoints = 1;
+            break;
+          case "FF":
+            gradePoints = 0;
+            break;
+          default:
+            break;
+        }
+        totalGradePoints += gradePoints * entry.ects;
       }
-      totalGradePoints += gradePoints * entry.ects;
     });
-
+  
     if (totalGradePoints === 0 || totalCredits === 0) {
       setGpa(0);
       return;
     }
-
     const calculatedGpa = totalGradePoints / totalCredits;
-
+  
     setTimeout(() => {
       setGpa(calculatedGpa);
     }, 50);
-
+  
     setTimeout(() => {
       if (isNaN(calculatedGpa)) {
         setGpa(0);
@@ -98,6 +101,7 @@ const Table = () => {
       }
     }, 100);
   };
+  
 
   const handleCourseChange = (index, event) => {
     const newData = [...data];
@@ -129,7 +133,7 @@ const Table = () => {
   };
 
   const handleAddEntry = () => {
-    if (newCourse && newEcts >= 0 && newGrade) {
+    if (newCourse && newEcts >= 0 && newGrade  && grades.includes(newGrade)) {
       const newData = {
         course: newCourse,
         ects: parseInt(newEcts),
@@ -151,12 +155,11 @@ const Table = () => {
         const columns = row.querySelectorAll("td");
         
         if (columns.length >= 4) {
-          console.log(columns);
         const course = columns[1].textContent.trim();
         const ects = columns[2].textContent.trim();
         const grade = columns[3].textContent.trim();
-  
         if (course && ects && grade) {
+          if(grades.includes(grade))
           tempData.push({
             course: course,
             ects: parseInt(ects),
@@ -298,13 +301,16 @@ const Table = () => {
       </div>
 
       <div className="html-input-section">
-        <label htmlFor="htmlTableInput">Enter HTML Table:</label>
-        <textarea
-          id="htmlTableInput"
-          value={htmlTableInput}
-          onChange={(e) => setHtmlTableInput(e.target.value)}
-        />
-        <button onClick={handleHtmlTableSubmit}>Submit</button>
+        <p htmlFor="htmlTableInput">Enter Your Custom HTML:</p>
+        <Textarea
+      placeholder="Type anything…"
+      value={htmlTableInput}
+      onChange={(e) => setHtmlTableInput(e.target.value)}
+      style={{ resize: 'none' }}  
+      maxRows={4}
+
+    />
+        <Button onClick={handleHtmlTableSubmit} style={{marginTop:"1rem"}}>Submit</Button>
       </div>
 
       <div className="previous-info">

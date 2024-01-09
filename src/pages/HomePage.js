@@ -1,12 +1,10 @@
 import React from "react";
-import TableAddCourse from "../components/TableAddCourse";
-import Test from "../components/Test";
+import MyTable from "../components/MyTable";
 
 const HomePage = () => {
   return (
     <>
-      <Test />
-      {/* <TableAddCourse /> */}
+      <MyTable />
     </>
   );
 };

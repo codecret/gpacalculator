@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Textarea from '@mui/joy/Textarea';
 import Button from '@mui/joy/Button';
 
-const Table = () => {
+const MyTable = () => {
   const [data, setData] = useState([]);
   const [newCourse, setNewCourse] = useState("");
   const [newEcts, setNewEcts] = useState("");
@@ -217,9 +217,7 @@ const Table = () => {
         <tbody>
           {data.map((row, index) => (
             <tr key={index}>
-                <td>
-                {index+1}
-              </td>
+              <td>{index + 1}</td>
               <td>
                 <input
                   type="text"
@@ -242,8 +240,7 @@ const Table = () => {
               <td>
                 <select
                   value={row.grade}
-                  onChange={(event) => handleGradeChange(index, event)}
-                >
+                  onChange={(event) => handleGradeChange(index, event)}>
                   <option value="">Select Grade</option>
                   <option value="AA">AA</option>
                   <option value="BA">BA</option>
@@ -258,8 +255,7 @@ const Table = () => {
               <td>
                 <button
                   onClick={() => handleDelete(index)}
-                  className="deleteBtn"
-                >
+                  className="deleteBtn">
                   Delete
                 </button>
               </td>
@@ -283,8 +279,7 @@ const Table = () => {
         />
         <select
           value={newGrade}
-          onChange={(event) => setNewGrade(event.target.value)}
-        >
+          onChange={(event) => setNewGrade(event.target.value)}>
           <option value="">Select Grade</option>
           <option value="AA">AA</option>
           <option value="BA">BA</option>
@@ -295,27 +290,32 @@ const Table = () => {
           <option value="DD">DD</option>
           <option value="FF">FF</option>
         </select>
-        <button className="buttonCalculator" onClick={handleAddEntry}>
-          Add
-        </button>
+        <Button onClick={handleAddEntry} className="buttonCalculator mt-5">
+          Submit
+        </Button>
       </div>
 
       <div className="html-input-section">
         <p htmlFor="htmlTableInput">Enter Your Custom HTML:</p>
         <Textarea
-      placeholder="Type anything…"
-      value={htmlTableInput}
-      onChange={(e) => setHtmlTableInput(e.target.value)}
-      style={{ resize: 'none' }}  
-      maxRows={4}
-
-    />
-        <Button onClick={handleHtmlTableSubmit} style={{marginTop:"1rem"}}>Submit</Button>
+          placeholder="Type anything…"
+          value={htmlTableInput}
+          onChange={(e) => setHtmlTableInput(e.target.value)}
+          style={{ resize: "none" }}
+          maxRows={4}
+        />
+        <Button onClick={handleHtmlTableSubmit} className="mt-5">
+          Submit
+        </Button>
       </div>
 
       <div className="previous-info">
         <h3>Previous GPA and Credits</h3>
-        <label htmlFor="previousGpa">PREVIOUS GPA</label>
+
+        <div className="mt-5">
+        <label htmlFor="previousGpa">
+          PREVIOUS GPA
+        </label>
         <input
           type="number"
           placeholder="Previous GPA"
@@ -323,16 +323,25 @@ const Table = () => {
           step="0.1"
           inputMode="decimal"
           onChange={handleInputChange}
+          className="mt-5"
         />
-        <label htmlFor="previouscredit">Previous Credits</label>
+        </div>
 
-        <input
-          type="number"
-          placeholder="Previous Credits"
-          value={previousCredits}
-          pattern="[0-9]*[.,]?[0-9]+"
-          onChange={(event) => setPreviousCredits(parseInt(event.target.value))}
-        />
+        <div className="mt-5">
+          <label htmlFor="previouscredit" >
+            Previous Credits
+          </label>
+          <input
+            type="number"
+            placeholder="Previous Credits"
+            value={previousCredits}
+            pattern="[0-9]*[.,]?[0-9]+"
+            onChange={(event) =>
+              setPreviousCredits(parseInt(event.target.value))
+            }
+            className="mt-5"
+          />
+        </div>
       </div>
 
       <div className="gpa">
@@ -342,4 +351,4 @@ const Table = () => {
   );
 };
 
-export default Table;
+export default MyTable;

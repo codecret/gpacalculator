@@ -1,6 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+* {
+  transition: ease-in all 0.3s;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+body {
+  font-family: 'Lato', sans-serif;
+}
 body {
   height: 100vh;
-  /* background-color: black; */
 }
 
 .table-container {
@@ -34,6 +42,7 @@ body {
   padding: 6px 12px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  color: black;
 }
 
 .table-container .btn {
@@ -98,7 +107,9 @@ body {
   height: 2rem;
   font-family: arial;
 }
-
+.mt-5 {
+  margin-top: 10px !important;
+}
 .switch {
   position: relative;
   overflow: hidden;
@@ -304,41 +315,67 @@ body {
 body.night-mode {
   background-color: rgb(35, 39, 47);
 }
-
+.add-entry{
+  margin-top: 1rem;
+}
 body.night-mode .h1GPA,
 body.night-mode label,
 body.night-mode h3,
 body.night-mode td,
 body.night-mode .gpa {
-  color: white; /* Text color for labels, h3, and .gpa class in night mode */
+  color: white; 
 }
 body.night-mode td {
-  background-color: white;
+  background-color: rgb(203, 203, 203);
+}
+body.night-mode th {
+  color: white;
+}
+body.night-mode select {
+  background-color: rgb(203, 203, 203);
+}
+body.night-mode input {
+  background-color: rgb(203, 203, 203);
+}
+body.night-mode p {
+  color: white;
 }
 .deleteBtn {
   color: black !important;
 }
 body.night-mode .deleteBtn {
   border: none;
-  color: black;
+  color: white !important; 
   background-color: rgb(67, 124, 173);
+}
+body.night-mode textarea {
+  border: none;
+  background-color: rgb(203, 203, 203);
+}
+body.night-mode .MuiTextarea-sizeMd {
+  border: none;
+  background-color: rgb(203, 203, 203);
 }
 body.night-mode Button {
   border: 1px solid black;
 }
-body.night-mode th,
-body.night-mode .buttonCalculator {
+body.night-mode td {
+  color:black;
+}
+body.night-mode th {
   background-color: rgb(67, 124, 173);
 }
 .gpa {
   font-size: 2rem;
 }
+
+
 @media (max-width: 1024px) {
   .h1GPA,
   table {
-    margin-top: 100px; /* Adjust the margin-top value for iPads */
+    margin-top: 100px; 
   }
-}
-* {
-  transition: ease-in all 0.3s;
+  .table-container{
+    padding: 10px !important; 
+  }
 }

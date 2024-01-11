@@ -43,7 +43,7 @@ const MyTable = () => {
     calculateGpa(data);
   }, [previousGpa, previousCredits]);
 
-  const grades = ["AA", 'BA', 'BB', 'CB', 'CC', 'CD', 'DD'];
+  const grades = ["AA", 'BA', 'BB', 'CB', 'CC', 'DC', 'DD'];
   const calculateGpa = (data) => {
     const totalCredits =
       previousCredits + data.reduce((sum, entry) => sum + entry.ects, 0);
@@ -80,15 +80,20 @@ const MyTable = () => {
           default:
             break;
         }
+        console.log("new value");
         totalGradePoints += gradePoints * entry.ects;
+        console.log(gradePoints);
+        console.log(entry.ects);
+        console.log(totalGradePoints);
       }
     });
-  
+    
     if (totalGradePoints === 0 || totalCredits === 0) {
       setGpa(0);
       return;
     }
     const calculatedGpa = totalGradePoints / totalCredits;
+    console.log(totalCredits);
   
     setTimeout(() => {
       setGpa(calculatedGpa);

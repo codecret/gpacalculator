@@ -51,7 +51,7 @@ body {
 }
 
 .container {
-  max-width: 400px;
+  max-width: 300px;
   margin-top: 16px;
 }
 
@@ -132,8 +132,8 @@ body {
 .background {
   z-index: 1;
   position: absolute;
-  width: 7.5rem;
-  height: 4rem;
+  width: 6.5rem;
+  height: 3rem;
   border-radius: 2.5rem;
   border: 0.25rem solid #202020;
   background: linear-gradient(to right, #484848 0%, #202020 100%);
@@ -170,7 +170,7 @@ body {
 }
 
 .stars2 {
-  top: 40px;
+  top: 34px;
   right: 48px;
 }
 
@@ -199,12 +199,12 @@ body {
 }
 
 .stars2:after {
-  top: -8px;
+  top: 2px;
   right: -16px;
 }
 
 .stars2:before {
-  top: 6px;
+  top: 1px;
   right: -26px;
 }
 
@@ -213,13 +213,13 @@ body {
   position: absolute;
   left: 0;
   display: inline-block;
-  height: 3rem;
-  width: 3rem;
+  height: 2rem;
+  width: 2rem;
   margin: 0.5rem;
   background: #fffdf2;
   border-radius: 50%;
   transition: all 0.5s ease;
-
+  /* overflow: hidden; */
   /* Default to Moon */
   border: 0.25rem solid #dee2c6;
 }
@@ -255,7 +255,7 @@ body {
 }
 
 .sun-moon .dots:before {
-  top: 18px;
+  top: 11px;
   left: -10px;
 }
 

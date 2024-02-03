@@ -81,11 +81,7 @@ const MyTable = () => {
           default:
             break;
         }
-        console.log("new value");
         totalGradePoints += gradePoints * entry.ects;
-        console.log(gradePoints);
-        console.log(entry.ects);
-        console.log(totalGradePoints);
       }
     });
 
@@ -94,7 +90,6 @@ const MyTable = () => {
       return;
     }
     const calculatedGpa = totalGradePoints / totalCredits;
-    console.log(totalCredits);
 
     setTimeout(() => {
       setGpa(calculatedGpa);
@@ -152,6 +147,7 @@ const MyTable = () => {
   };
 
   const handleHtmlTableSubmit = () => {
+    console.log("table submit");
     const tempData = [];
     const tempDiv = document.createElement("div");
     tempDiv.innerHTML = htmlTableInput;
@@ -177,7 +173,6 @@ const MyTable = () => {
               ects: parseInt(ects),
               grade: grade,
             };
-            console.log(`${course} already exists. Updating...`);
           } else {
             // Add the new course
             tempData.push({
@@ -185,7 +180,6 @@ const MyTable = () => {
               ects: parseInt(ects),
               grade: grade,
             });
-            console.log(`${course} does not exist. Adding...`);
           }
         }
       }
@@ -329,7 +323,7 @@ const MyTable = () => {
           maxRows={4}
         />
         <Button onClick={handleHtmlTableSubmit} className="mt-5">
-          Submit s
+          Submit
         </Button>
       </div>
 

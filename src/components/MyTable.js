@@ -44,7 +44,7 @@ const MyTable = () => {
     calculateGpa(data);
   }, [previousGpa, previousCredits]);
 
-  const grades = ["AA", "BA", "BB", "CB", "CC", "DC", "DD"];
+  const grades = ["AA", "BA", "BB", "CB", "CC", "DC", "DD", "FF"];
   const calculateGpa = (data) => {
     const totalCredits =
       previousCredits + data.reduce((sum, entry) => sum + entry.ects, 0);
@@ -307,6 +307,7 @@ const MyTable = () => {
           <option value="CC">CC</option>
           <option value="DC">DC</option>
           <option value="DD">DD</option>
+          <option value="FF">FF</option>
         </select>
         <Button onClick={handleAddEntry} className="buttonCalculator mt-5">
           Submit

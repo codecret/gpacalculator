@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import Textarea from '@mui/joy/Textarea';
-import Button from '@mui/joy/Button';
+import Textarea from "@mui/joy/Textarea";
+import Button from "@mui/joy/Button";
 
 const MyTable = () => {
   const [data, setData] = useState([]);
@@ -12,6 +12,7 @@ const MyTable = () => {
   const [previousCredits, setPreviousCredits] = useState(0);
   const [isNight, setNight] = useState(false);
   const [htmlTableInput, setHtmlTableInput] = useState("");
+  const [courses, setCourses] = useState([]);
 
   useEffect(() => {
     calculateGpa(data);
@@ -43,12 +44,12 @@ const MyTable = () => {
     calculateGpa(data);
   }, [previousGpa, previousCredits]);
 
-  const grades = ["AA", 'BA', 'BB', 'CB', 'CC', 'DC', 'DD'];
+  const grades = ["AA", "BA", "BB", "CB", "CC", "DC", "DD"];
   const calculateGpa = (data) => {
     const totalCredits =
       previousCredits + data.reduce((sum, entry) => sum + entry.ects, 0);
     let totalGradePoints = previousGpa * previousCredits;
-  
+
     data.forEach((entry) => {
       if (grades.includes(entry.grade)) {
         let gradePoints = 0;
@@ -87,18 +88,18 @@ const MyTable = () => {
         console.log(totalGradePoints);
       }
     });
-    
+
     if (totalGradePoints === 0 || totalCredits === 0) {
       setGpa(0);
       return;
     }
     const calculatedGpa = totalGradePoints / totalCredits;
     console.log(totalCredits);
-  
+
     setTimeout(() => {
       setGpa(calculatedGpa);
     }, 50);
-  
+
     setTimeout(() => {
       if (isNaN(calculatedGpa)) {
         setGpa(0);
@@ -106,7 +107,6 @@ const MyTable = () => {
       }
     }, 100);
   };
-  
 
   const handleCourseChange = (index, event) => {
     const newData = [...data];
@@ -138,7 +138,7 @@ const MyTable = () => {
   };
 
   const handleAddEntry = () => {
-    if (newCourse && newEcts >= 0 && newGrade  && grades.includes(newGrade)) {
+    if (newCourse && newEcts >= 0 && newGrade && grades.includes(newGrade)) {
       const newData = {
         course: newCourse,
         ects: parseInt(newEcts),
@@ -156,24 +156,41 @@ const MyTable = () => {
     const tempDiv = document.createElement("div");
     tempDiv.innerHTML = htmlTableInput;
     const rows = tempDiv.querySelectorAll("tr");
-    rows.forEach((row,key) => {
-        const columns = row.querySelectorAll("td");
-        
-        if (columns.length >= 4) {
+    rows.forEach((row, key) => {
+      const columns = row.querySelectorAll("td");
+
+      if (columns.length >= 4) {
         const course = columns[1].textContent.trim();
         const ects = columns[2].textContent.trim();
         const grade = columns[3].textContent.trim();
-        if (course && ects && grade) {
-          if(grades.includes(grade))
-          tempData.push({
-            course: course,
-            ects: parseInt(ects),
-            grade: grade,
-          });
+
+        if (course && ects && grade && grades.includes(grade)) {
+          // Check if the course already exists
+          const existingCourseIndex = tempData.findIndex(
+            (ele) => ele.course === course
+          );
+
+          if (existingCourseIndex !== -1) {
+            // Update the existing course
+            tempData[existingCourseIndex] = {
+              course: course,
+              ects: parseInt(ects),
+              grade: grade,
+            };
+            console.log(`${course} already exists. Updating...`);
+          } else {
+            // Add the new course
+            tempData.push({
+              course: course,
+              ects: parseInt(ects),
+              grade: grade,
+            });
+            console.log(`${course} does not exist. Adding...`);
+          }
         }
       }
     });
-  
+
     setData(tempData);
     setHtmlTableInput("");
   };
@@ -245,7 +262,8 @@ const MyTable = () => {
               <td>
                 <select
                   value={row.grade}
-                  onChange={(event) => handleGradeChange(index, event)}>
+                  onChange={(event) => handleGradeChange(index, event)}
+                >
                   <option value="">Select Grade</option>
                   <option value="AA">AA</option>
                   <option value="BA">BA</option>
@@ -260,7 +278,8 @@ const MyTable = () => {
               <td>
                 <button
                   onClick={() => handleDelete(index)}
-                  className="deleteBtn">
+                  className="deleteBtn"
+                >
                   Delete
                 </button>
               </td>
@@ -284,7 +303,8 @@ const MyTable = () => {
         />
         <select
           value={newGrade}
-          onChange={(event) => setNewGrade(event.target.value)}>
+          onChange={(event) => setNewGrade(event.target.value)}
+        >
           <option value="">Select Grade</option>
           <option value="AA">AA</option>
           <option value="BA">BA</option>
@@ -293,7 +313,6 @@ const MyTable = () => {
           <option value="CC">CC</option>
           <option value="DC">DC</option>
           <option value="DD">DD</option>
-          <option value="FF">FF</option>
         </select>
         <Button onClick={handleAddEntry} className="buttonCalculator mt-5">
           Submit
@@ -310,7 +329,7 @@ const MyTable = () => {
           maxRows={4}
         />
         <Button onClick={handleHtmlTableSubmit} className="mt-5">
-          Submit
+          Submit s
         </Button>
       </div>
 
@@ -318,24 +337,20 @@ const MyTable = () => {
         <h3>Previous GPA and Credits</h3>
 
         <div className="mt-5">
-        <label htmlFor="previousGpa">
-          PREVIOUS GPA
-        </label>
-        <input
-          type="number"
-          placeholder="Previous GPA"
-          value={previousGpa}
-          step="0.1"
-          inputMode="decimal"
-          onChange={handleInputChange}
-          className="mt-5"
-        />
+          <label htmlFor="previousGpa">PREVIOUS GPA</label>
+          <input
+            type="number"
+            placeholder="Previous GPA"
+            value={previousGpa}
+            step="0.1"
+            inputMode="decimal"
+            onChange={handleInputChange}
+            className="mt-5"
+          />
         </div>
 
         <div className="mt-5">
-          <label htmlFor="previouscredit" >
-            Previous Credits
-          </label>
+          <label htmlFor="previouscredit">Previous Credits</label>
           <input
             type="number"
             placeholder="Previous Credits"

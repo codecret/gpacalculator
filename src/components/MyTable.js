@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Textarea from "@mui/joy/Textarea";
 import Button from "@mui/joy/Button";
+import { Link } from "react-router-dom";
 
 const MyTable = () => {
   const [data, setData] = useState([]);
@@ -199,28 +200,33 @@ const MyTable = () => {
 
   return (
     <div className={`table-container ${isNight ? "night-mode" : ""}`}>
-      <div className="container">
-        <div className="switch">
-          <label htmlFor="toggle">
-            <input
-              id="toggle"
-              className="toggle-switch"
-              type="checkbox"
-              checked={!isNight}
-              onChange={() => setNight(!isNight)}
-            />
-            <div className="sun-moon">
-              <div className="dots"></div>
-            </div>
-            <div className="background">
-              <div className="stars1"></div>
-              <div className="stars2"></div>
-            </div>
-            <div className="fill"></div>
-          </label>
+      <div className="containerflex">
+        <div className="container">
+          <div className="switch">
+            <label htmlFor="toggle">
+              <input
+                id="toggle"
+                className="toggle-switch"
+                type="checkbox"
+                checked={!isNight}
+                onChange={() => setNight(!isNight)}
+              />
+              <div className="sun-moon">
+                <div className="dots"></div>
+              </div>
+              <div className="background">
+                <div className="stars1"></div>
+                <div className="stars2"></div>
+              </div>
+              <div className="fill"></div>
+            </label>
+          </div>
         </div>
+        <h1 className="h1GPA">GPA Calculator</h1>
+        <Link className="learnMore" to={"./learnMore"}>
+          Learn How to use
+        </Link>
       </div>
-      <h1 className="h1GPA">GPA Calculator</h1>
       <table>
         <thead>
           <tr>

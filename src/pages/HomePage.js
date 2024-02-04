@@ -5,9 +5,9 @@ import ReactGA from "react-ga4";
 
 const HomePage = () => {
   ReactGA.send({
-    hitType: "pageview",
-    page: "/learnMore",
-    title: "Learn More",
+    hitType: "homepage",
+    page: "/gpacalculator",
+    title: "Home Page",
   });
   return (
     <>

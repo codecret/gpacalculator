@@ -7,7 +7,7 @@ import { useEffect } from "react";
 
 const LearnMore = () => {
   ReactGA.send({
-    hitType: "pageview",
+    hitType: "learnmore",
     page: "/learnMore",
     title: "Learn More",
   });

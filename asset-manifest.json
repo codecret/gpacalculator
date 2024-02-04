@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/gpacalculator/static/css/main.3aa4d766.css",
-    "main.js": "/gpacalculator/static/js/main.49944186.js",
+    "main.css": "/gpacalculator/static/css/main.5deba248.css",
+    "main.js": "/gpacalculator/static/js/main.de1dd852.js",
     "static/js/787.592b089d.chunk.js": "/gpacalculator/static/js/787.592b089d.chunk.js",
     "static/media/3.jpg": "/gpacalculator/static/media/3.f3826d40fd0a91479482.jpg",
     "static/media/2.jpg": "/gpacalculator/static/media/2.1c12ad171564bf57d7c8.jpg",
@@ -9,12 +9,12 @@
     "static/media/1.jpg": "/gpacalculator/static/media/1.427a1bbd8972e4f984c6.jpg",
     "static/media/0.png": "/gpacalculator/static/media/0.70bb80e4e142f3d76392.png",
     "index.html": "/gpacalculator/index.html",
-    "main.3aa4d766.css.map": "/gpacalculator/static/css/main.3aa4d766.css.map",
-    "main.49944186.js.map": "/gpacalculator/static/js/main.49944186.js.map",
+    "main.5deba248.css.map": "/gpacalculator/static/css/main.5deba248.css.map",
+    "main.de1dd852.js.map": "/gpacalculator/static/js/main.de1dd852.js.map",
     "787.592b089d.chunk.js.map": "/gpacalculator/static/js/787.592b089d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3aa4d766.css",
-    "static/js/main.49944186.js"
+    "static/css/main.5deba248.css",
+    "static/js/main.de1dd852.js"
   ]
 }

@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/gpacalculator/static/css/main.5deba248.css",
-    "main.js": "/gpacalculator/static/js/main.f5d0d10a.js",
+    "main.js": "/gpacalculator/static/js/main.f13aa160.js",
     "static/js/787.592b089d.chunk.js": "/gpacalculator/static/js/787.592b089d.chunk.js",
     "static/media/3.jpg": "/gpacalculator/static/media/3.f3826d40fd0a91479482.jpg",
     "static/media/2.jpg": "/gpacalculator/static/media/2.1c12ad171564bf57d7c8.jpg",
@@ -10,11 +10,11 @@
     "static/media/0.png": "/gpacalculator/static/media/0.70bb80e4e142f3d76392.png",
     "index.html": "/gpacalculator/index.html",
     "main.5deba248.css.map": "/gpacalculator/static/css/main.5deba248.css.map",
-    "main.f5d0d10a.js.map": "/gpacalculator/static/js/main.f5d0d10a.js.map",
+    "main.f13aa160.js.map": "/gpacalculator/static/js/main.f13aa160.js.map",
     "787.592b089d.chunk.js.map": "/gpacalculator/static/js/787.592b089d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.5deba248.css",
-    "static/js/main.f5d0d10a.js"
+    "static/js/main.f13aa160.js"
   ]
 }

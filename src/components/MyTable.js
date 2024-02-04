@@ -223,9 +223,6 @@ const MyTable = () => {
           </div>
         </div>
         <h1 className="h1GPA">GPA Calculator</h1>
-        <Link className="learnMore" to={"./learnMore"}>
-          Learn How to use
-        </Link>
       </div>
       <table>
         <thead>
@@ -321,7 +318,15 @@ const MyTable = () => {
       </div>
 
       <div className="html-input-section">
-        <p htmlFor="htmlTableInput">Enter Your Custom HTML:</p>
+        <p htmlFor="htmlTableInput">
+          Enter Your Custom HTML:{" "}
+          <span>
+            <Link className="learnMore" to={"./learnMore"}>
+              (How to use ?)
+            </Link>
+          </span>
+        </p>
+
         <Textarea
           placeholder="Type anything…"
           value={htmlTableInput}

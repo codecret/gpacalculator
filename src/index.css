@@ -197,7 +197,9 @@ body {
   top: 18px;
   right: -12px;
 }
-
+.input {
+  display: flex;
+}
 .stars2:after {
   top: 2px;
   right: -16px;
@@ -372,15 +374,10 @@ body.night-mode .learnMore {
   font-size: 2rem;
 }
 .learnMore {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  padding-bottom: 0.3rem;
-  border-bottom: 1px solid black;
-  text-decoration: none;
-  color: rgb(0, 0, 0);
-
+  color: rgb(39, 39, 140);
   text-align: center;
+  display: inline-flex;
+  text-decoration: none;
 }
 .learnMoreContainer {
   display: flex;

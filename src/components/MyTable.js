@@ -50,7 +50,6 @@ const MyTable = () => {
     const totalCredits =
       previousCredits + data.reduce((sum, entry) => sum + entry.ects, 0);
     let totalGradePoints = previousGpa * previousCredits;
-
     data.forEach((entry) => {
       if (grades.includes(entry.grade)) {
         let gradePoints = 0;
@@ -319,7 +318,7 @@ const MyTable = () => {
 
       <div className="html-input-section">
         <p htmlFor="htmlTableInput">
-          Enter Your Custom HTML:{" "}
+          Enter Your Custom HTML to fill the table:
           <span>
             <Link className="learnMore" to={"./learnMore"}>
               (How to use ?)
@@ -339,10 +338,10 @@ const MyTable = () => {
         </Button>
       </div>
 
-      <div className="previous-info">
-        <h3>Previous GPA and Credits</h3>
+      {/* <div className="previous-info"> */}
+      {/* <h3>Previous GPA and Credits</h3> */}
 
-        <div className="mt-5">
+      {/* <div className="mt-5">
           <label htmlFor="previousGpa">PREVIOUS GPA</label>
           <input
             type="number"
@@ -353,9 +352,9 @@ const MyTable = () => {
             onChange={handleInputChange}
             className="mt-5"
           />
-        </div>
+        </div> */}
 
-        <div className="mt-5">
+      {/* <div className="mt-5">
           <label htmlFor="previouscredit">Previous Credits</label>
           <input
             type="number"
@@ -367,8 +366,8 @@ const MyTable = () => {
             }
             className="mt-5"
           />
-        </div>
-      </div>
+        </div> */}
+      {/* </div> */}
 
       <div className="gpa">
         <p>GPA: {gpa.toFixed(2)}</p>

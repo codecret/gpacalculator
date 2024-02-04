@@ -2,8 +2,13 @@ import React from "react";
 import { learnMoreLinks } from "../utils/links";
 import One from "../assets/1.jpg";
 import { Link } from "react-router-dom";
+import ReactGA from "react-ga";
+import { useEffect } from "react";
 
 const LearnMore = () => {
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
   return (
     <main className="learnMoreContainer">
       <h1>

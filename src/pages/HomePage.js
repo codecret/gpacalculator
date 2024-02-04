@@ -1,12 +1,14 @@
 import React from "react";
 import MyTable from "../components/MyTable";
 import { useEffect } from "react";
-import ReactGA from "react-ga";
+import ReactGA from "react-ga4";
 
 const HomePage = () => {
-  useEffect(() => {
-    ReactGA.pageview(window.location.pathname + window.location.search);
-  }, []);
+  ReactGA.send({
+    hitType: "pageview",
+    page: "/learnMore",
+    title: "Learn More",
+  });
   return (
     <>
       <MyTable />

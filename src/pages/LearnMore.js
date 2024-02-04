@@ -2,13 +2,16 @@ import React from "react";
 import { learnMoreLinks } from "../utils/links";
 import One from "../assets/1.jpg";
 import { Link } from "react-router-dom";
-import ReactGA from "react-ga";
+import ReactGA from "react-ga4";
 import { useEffect } from "react";
 
 const LearnMore = () => {
-  useEffect(() => {
-    ReactGA.pageview(window.location.pathname + window.location.search);
-  }, []);
+  ReactGA.send({
+    hitType: "pageview",
+    page: "/learnMore",
+    title: "Learn More",
+  });
+
   return (
     <main className="learnMoreContainer">
       <h1>
